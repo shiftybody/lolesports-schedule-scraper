@@ -5,7 +5,7 @@ module.exports = async function (context, myTimer) {
 
  const browser = await chromium.launch({ headless: true });
     const page = await browser.newPage();
-    await page.goto('https://lolesports.com/schedule?leagues=superliga');
+    await page.goto('https://lolesports.com/schedule?leagues=lec');
 
     while (true) {
         let previousHeight = await page.evaluate('document.body.scrollHeight');
@@ -110,7 +110,7 @@ module.exports = async function (context, myTimer) {
         context.log("Conectado correctamente al servidor de MongoDB Atlas");
 
         const db = client.db('squedules');
-        const collection = db.collection('superliga');
+        const collection = db.collection('lec');
         
         // -1 punto por no haber encontrado la forma de actualizar
         // los datos en lugar de borrarlos y volver a insertarlos
